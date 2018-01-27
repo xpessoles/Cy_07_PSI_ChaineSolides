@@ -70,7 +70,7 @@
 }%figues de la page de garde
 
 \def\xxpied{%
-Cycle 07 -- Modélisation des chaînes de solides dans le but de déterminer les contraintes géométriques dans les mécanismes\\% afin de valider leurs performances.\\
+Cycle 07 -- Modélisation des chaînes de solides \\%dans le but de déterminer les contraintes géométriques dans les mécanismes\\% afin de valider leurs performances.\\
 Chapitre 1 -- \xxactivite%
 }
 
@@ -181,9 +181,52 @@ La détermination de la liaison équivalente correspondant à l'association de p
 \item d'autoriser les mêmes mouvements relatifs que l'association de liaisons.
 \end{itemize}
 \end{obj}
-\subsection{Liaisons en parallèles}
-\subsection{Liaisons en série}
 
+\subsection{Liaisons en parallèles}
+\begin{methode}
+La liaison équivalente aux liaisons en parallèles doit permettre de transmettre la somme de chacune des actions mécaniques. Ainsi : 
+$$
+\torseurstat{T}{1}{2}_{\text{eq}} = \sum\limits_{i=1}^{n}\torseurstat{T}{1}{2}_{i}.
+$$ 
+\end{methode}
+
+\begin{rem}
+La liaison équivalente devant permettre les même mobilités que les liaisons en série, il est donc aussi possible de déterminer la liaison équivalente en résolvant le système d'équation suivant : 
+$$
+\torseurcin{V}{1}{2}_{\text{eq}} 
+= \torseurcin{V}{1}{2}_1
+= \torseurcin{V}{1}{2}_2
+=...
+= \torseurcin{V}{1}{2}_n.
+$$ 
+Cependant cette méthode dite << cinématique >> est moins aisée à mettre en \oe{}uvre que la première.
+
+\end{rem}
+\subsection{Liaisons en série}
+\begin{methode}
+La liaison équivalente aux liaisons en série se détermine en utilisant la composition du torseur cinématique. En effet : 
+$$
+\torseurcin{V}{1}{n}_{\text{eq}} = \sum\limits_{i=1}^{n-1}\torseurcin{V}{i}{i+1}.
+$$ 
+\end{methode}
+
+\begin{rem}
+L'application successive du principe fondamental de la statique à chacun des solides permet de déterminer le torseur équivalent de la liaison : 
+$$
+\torseurstat{T}{n}{1}_{\text{eq}} = 
+\torseurstat{T}{2}{1} = 
+\torseurstat{T}{3}{2} =
+...
+=\torseurstat{T}{n}{n-1}.
+$$ 
+\end{rem}
+
+\begin{warn}
+L'observation de la forme du torseur de la liaison équivalente ne suffit pas à déduire le nom de la liaison : il faut aussi s'assurer que les composantes du torseur sont bien indépendantes. 
+\end{warn}
+
+\subsection{Décomposition des liaisons}
+Chacune des liaisons normalisées à n degré de liberté peut être décomposée en n liaisons ponctuelles en parallèles (sphère -- plan). Par exemple, une liaison rotule (sphérique) est équivalente à 3 liaisons ponctuelles en parallèles.  
 \end{document}
 
 
