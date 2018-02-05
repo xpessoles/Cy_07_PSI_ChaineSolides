@@ -26,8 +26,8 @@
 \def\xxnumpartie{Cycle 07}
 \def\xxpartie{Modélisation des chaînes de solides dans le but de déterminer les contraintes géométriques dans les mécanismes}
 
-\def\xxnumchapitre{Chapitre 1 \vspace{.2cm}}
-\def\xxchapitre{\hspace{.12cm} Détermination des liaisons équivalentes}
+\def\xxnumchapitre{Chapitre 2 \vspace{.2cm}}
+\def\xxchapitre{\hspace{.12cm} Hyperstatisme}
 
 
 \def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
@@ -36,18 +36,18 @@
 
 
 
-\def\xxtitreexo{Application 01}%Motorisation du moteur Haibike}
-\def\xxsourceexo{\hspace{.2cm} \footnotesize{P. Dupas}}
+\def\xxtitreexo{Application 01 -- Pompe à pistons axiaux}
+\def\xxsourceexo{\hspace{.2cm} \footnotesize{E. Durif}}
 
 
 \def\xxposongletx{2}
 \def\xxposonglettext{1.45}
 \def\xxposonglety{20}
 %\def\xxonglet{Part. 1 -- Ch. 3}
-\def\xxonglet{\textsf{Cycle 05}}
+\def\xxonglet{\textsf{Cycle 07}}
 
 \def\xxactivite{Application}
-\def\xxauteur{\textsl{P. Dupas}}
+\def\xxauteur{\textsl{E. Durif}}
 
 \def\xxcompetences{%
 \textsl{%
@@ -93,144 +93,175 @@ Chapitre 1 -- \xxactivite%
 \else
 \begin{multicols}{2}
 \fi
-
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{multicols}{2}
 
 
 
 
-\subsection{Présentation de l'exemple d'étude du cours : pompe à pistons axiaux}
+\subsection*{Présentation}
 Nous prendrons comme exemple dans ce cours, la pompe à pistons axiaux. Nous avons retenu une modélisation avec 4 classes d'équivalence y compris le bâti :
 
 \begin{itemize}
 \item 0 : bâti;
-\item 1 : Barillet;
+\item 1 : barillet;
 \item 2 : piston;
 \item 3 : poussoir.
 \end{itemize}
 
 On note $n$ le nombre de classes d'équivalence hors bâti (ici $n=3$).
-Dans cette étude, on se place directement dans la base $B_{1}=\base{\overrightarrow{x_{1}}}{\overrightarrow{y_{1}}}{\overrightarrow{z_{1}}}$ qui est en rotation par rapport à la base $B_{O}=\base{\overrightarrow{x_{0}}}{\overrightarrow{y_{0}}}{\overrightarrow{z_{0}}}$ autour de l'axe $\overrightarrow{z_{0}}=\overrightarrow{z_{1}}$ avec le paramètre de rotation $\theta$.
-Le plateau inclinable est supposé fixe au cours du temps. On lui associe le repère $R_{0*}=\base{\overrightarrow{x_{0*}}}{\overrightarrow{y_{0*}}}{\overrightarrow{z_{0*}}}$ qui est en rotation par rapport au repère $R_{O}=\base{\overrightarrow{x_{0}}}{\overrightarrow{y_{0}}}{\overrightarrow{z_{0}}}$ autour de l'axe $\overrightarrow{y_{0}}$ avec le paramètre angulaire $\alpha$. On introduit le repère $R_{1*}=\base{\overrightarrow{x_{1*}}}{\overrightarrow{y_{1*}}}{\overrightarrow{z_{1*}}}$ directement obtenu à partir de $R_{0*}$ par une rotation autour de $\overrightarrow{z_{0*}}$ et d'angle $\theta$.
-On donne également,
-
-\begin{itemize}
-\item $\overrightarrow{AB}=L_1\overrightarrow{z_0}$
-\item $\overrightarrow{BC}=-R\overrightarrow{x_1}$
-\item $\overrightarrow{CD}=\lambda\overrightarrow{z_1}$
-\item $\overrightarrow{DE}=h\overrightarrow{z_{1*}}$
-\end{itemize}
-
-\begin{figure}[ht!]
-			\begin{center}
-				\includegraphics[width=.7\textwidth]{images/pompe.pdf}
-			\end{center}
-			\caption{Schéma technologique d'une pompe à pistons axiaux \label{fig:techno_pompe}}
-\end{figure}
+Dans cette étude, on se place directement dans la base $B_{1}=\base{{x_{1}}}{{y_{1}}}{{z_{1}}}$ qui est en rotation par rapport à la base $B_{O}=\base{{x_{0}}}{{y_{0}}}{{z_{0}}}$ autour de l'axe $\vect{z_{0}}=\vect{z_{1}}$ avec le paramètre de rotation $\theta$.
+Le plateau inclinable est supposé fixe au cours du temps. On lui associe le repère $R_{0*}=\base{{x_{0*}}}{{y_{0*}}}{{z_{0*}}}$ qui est en rotation par rapport au repère $R_{O}=\base{{x_{0}}}{{y_{0}}}{{z_{0}}}$ autour de l'axe $\vect{y_{0}}$ avec le paramètre angulaire $\alpha$. On introduit le repère $R_{1*}=\base{{x_{1*}}}{{y_{1*}}}{{z_{1*}}}$ directement obtenu à partir de $R_{0*}$ par une rotation autour de $\vect{z_{0*}}$ et d'angle $\theta$.
+On donne également :
+$\vect{AB}=L_1\vect{z_0}$, $\vect{BC}=-R\vect{x_1}$, $\vect{CD}=\lambda\vect{z_1}$, $\vect{DE}=h\vect{z_{1*}}$.
 
 
-Les liaisons entre les différentes classes d'équivalence permettent de modéliser le système avec le schéma cinématique suivant la figure \ref{fig:cine_pompe}: 
+\begin{center}
+  \includegraphics[width=.9\linewidth]{images/pompe.pdf}
+  
+  \textit{Schéma technologique d'une pompe à pistons axiaux \label{fig:techno_pompe}}
 
-\begin{figure}[ht!]
-			\begin{center}
-				\includegraphics[width=.7\textwidth]{images/pompe_cine.pdf}
-			\end{center}
-			\caption{Schéma cinématique d'une pompe à pistons axiaux \label{fig:cine_pompe}}
-\end{figure}
+\end{center}
+
+
+Les liaisons entre les différentes classes d'équivalence permettent de modéliser le système avec le schéma cinématique ci-après.
+
+
 
 \begin{itemize}
 \item Les liaisons sont parfaites : sans frottements ni jeux.
 \item Le poids et les effets d'inerties sont négligés.
-\item On introduit une action de pression s'exerçant sur le piston 2 assimilable à un glisseur d'axe central $\axe{C}{\overrightarrow{z_1}}$ et qui a pour résultante en effort : $\overrightarrow{F_p}=F_p\overrightarrow{z_1}$
+\item On introduit une action de pression s'exerçant sur le piston 2 assimilable à un glisseur d'axe central $\axe{C}{{z_1}}$ et qui a pour résultante en effort : $\vect{F_p}=F_p\vect{z_1}$
 \end{itemize}
 
 
-\section{Étude statique}
-\subsection{Objectifs}
+\begin{center}
+ \includegraphics[width=.9\linewidth]{images/pompe_cine.pdf}
+ 
+ \textit{Schéma cinématique d'une pompe à pistons axiaux \label{fig:cine_pompe}}
+\end{center}
+
+\subsection*{Etude préliminaire}
+\subparagraph{}\textit{Tracer le graphe de structure du mécanisme.}
+
+\subparagraph{}\textit{En utilisant les formules globales de l'hyperstatisme, déterminer le degré d'hyperstatisme en utilisant la méthode statique puis la méthode cinématique.}
+
+
+\subsection*{Étude statique}
+
+\subparagraph{}\textit{Isoler successivement les pièces 1, 2 puis 3 et réaliser le PFS en $B$, $C$ et $D$.}
+
+\subparagraph{}\textit{Écrire le système d'équations. Conclure sur le rang du système d'équations et sur l'hyperstatisme du système mécanique.}
+
+\subsection*{Étude cinématique}
+
+\subparagraph{}\textit{Écrire les fermetures de chaînes associées au mécanisme. }
+\subparagraph{}\textit{Écrire le système d'équations. Conclure sur le rang du système d'équations et sur l'hyperstatisme du système mécanique.}
+
+\subsection*{Hyperstatisme}
+\subparagraph{}\textit{Proposer des conditions géométriques permettant d'assurer l'assemblage du système. }
+\subparagraph{}\textit{Proposer une modèle isostatique cinématiquement équivalent. }
+
+\ifprof
+\end{multicols}
+\else
+\end{multicols}
+\fi
+
+
+
+\subsection*{Objectifs}
 \begin{itemize}
 \item La résolution statique a pour but de déterminer les actions dans les liaisons mécaniques. Cette résolution pourra alors ensuite permettre un dimensionnement des différentes liaisons.
 \item Cette approche permet également de déterminer l'isostaticité ou l'hypertstaticité en vue de d'estimer les conditions éventuelles de montage du mécanisme.
 \end{itemize}
 
-\subsection{Bilan des actions mécanique pour chacune des classes d'équivalence}
-\subsubsection{Bilan des actions mécaniques pour l'ensemble 1}
-On choisit d'écrire tous les torseurs des actions mécaniques au point B :
+\subsection*{Bilan des actions mécanique pour chacune des classes d'équivalence}
+\subsubsection*{Bilan des actions mécaniques pour l'ensemble 1}
+On choisit d'écrire tous les torseurs des actions mécaniques au point $B$ :
 \begin{itemize}
-\item \textbf{Action de 0 sur 1 en A :}\\
-\ifprof
-\begin{align*}
-\displaystyle \torseur{\T^{A}_{(\sS0\rightarrow\sS1)}}
-=\tColonne{A}{X_{A01} \\ Y_{A01} \\ Z_{A01}}{0 \\ 0 \\ 0}{R_1}
-=\tColonne{B}{X_{A01} \\ Y_{A01} \\ Z_{A01}}{L_1\;Y_{A01} \\ -L_1\;X_{A01} \\ 0}{R_1}
-\end{align*}
-\else\fi
-\item \textbf{Action de 0 sur 1 en B :}\\
-\ifprof
-\begin{align*}
-\torseur{\T^{B}_{(\sS0\rightarrow\sS1)}}
-=\tColonne{B}{X_{B01} \\ Y_{B01} \\ 0}{L_{B01} \\ M_{B01} \\ 0}{R_1}
-\end{align*}
-\else\fi
-\item \textbf{Action de 2 sur 1 en C :}\\
-\ifprof
-\begin{align*}
-\torseur{\T^{C}_{(\sS2\rightarrow\sS1)}}
-=\tColonne{C}{X_{C21} \\ Y_{C21} \\ 0}{L_{C21} \\ M_{C21} \\ 0}{R_1}
-=\tColonne{B}{X_{C21} \\ Y_{C21} \\ 0}{L_{C21} \\ M_{C21} \\ -R\;Y_{C21}}{R_1}
-\end{align*}
-\else\fi
+\item \textbf{Action de 0 sur 1 en A :}
+%\ifprof
+$$
+\torseurstat{T}{S_0}{S_{1A}}
+=\torseurcol{X_{A01}}{Y_{A01}}{Z_{A01}}{0}{0}{0}{A,R_1}
+=\torseurcol{X_{A01}}{Y_{A01}}{Z_{A01}}{L_1\;Y_{A01}}{-L_1\;X_{A01}}{0}{B,R_1}
+$$
+\item \textbf{Action de 0 sur 1 en B :}
+$$
+\torseurstat{T}{S_0}{S_{1B}}
+=\torseurcol{X_{B01}}{Y_{B01}}{0}{L_{B01}}{M_{B01}}{0}{B,R_1}
+$$
+\item \textbf{Action de 2 sur 1 en C :}
+$$
+\torseurstat{T}{S_2}{S_{1}}
+=\torseurcol{X_{21}}{Y_{21}}{0}{L_{21}}{M_{21}}{0}{C,R_1}
+=\torseurcol{X_{21}}{Y_{21}}{0}{L_{21}}{M_{21}}{-R\;Y_{21}}{B,R_1}
+$$
+
+%\else\fi
 \end{itemize}
-
-
 
 \subsubsection{Bilan des actions mécaniques pour l'ensemble 2}
 
-On choisit d'écrire tous les torseurs des actions mécaniques au point C :
+On choisit d'écrire tous les torseurs des actions mécaniques au point $C$ :
 \begin{itemize}
 \item \textbf{Action de 3 sur 2 en D :}\\
-\ifprof
-\begin{align*}
-\torseur{\T^{D}_{(\sS3\rightarrow\sS2)}}
-=\tColonne{D}{X_{D32} \\ Y_{D32} \\ Z_{D32}}{0 \\ 0 \\ 0}{R_1}
-=\tColonne{C}{X_{D32} \\ Y_{D32} \\ Z_{D32}}{-\lambda \;Y_{D32} \\ \lambda \;X_{D32} \\ 0}{R_1}
-\end{align*}
-\else\fi
+%\ifprof
+$$
+\torseurstat{T}{S_3}{S_2}
+=\torseurcol{X_{32}}{Y_{32}}{Z_{32}}{0}{0}{0}{D,R_1}
+=\torseurcol{X_{32}}{Y_{32}}{Z_{32}}{-\lambda \;Y_{32}}{\lambda \;X_{32}}{0}{C,R_1}
+$$
+%\else\fi
 \item \textbf{Action de 1 sur 2 en C :}\\
-\ifprof
-\begin{align*}
-\torseur{\T^{C}_{(\sS1\rightarrow\sS2)}}
-=\tColonne{C}{-X_{C21} \\ -Y_{C21} \\ 0}{-L_{C21} \\ -M_{C21} \\ 0}{R_1}
-\end{align*}
-\else\fi
-\item \textbf{Action de la pression en C :}\\
-\ifprof
-\begin{align*}
-\torseur{\T^{C}_{(pression \rightarrow\sS2)}}
-=\tColonne{C}{0 \\ 0 \\ F_p}{0 \\ 0 \\ 0}{R_1}
-\end{align*}
-\else\fi
-\end{itemize}
+%\ifprof
+$$
+\torseurstat{T}{S_1}{S_{2}}
+=\torseurcol{-X_{21}}{-Y_{21}}{0}{-L_{21}}{-M_{21}}{0}{C,R_1}
+$$
 
+%\else\fi
+\item \textbf{Action de la pression en C :}\\
+%\ifprof
+$$
+\torseurstat{T}{\text{pression}}{S_{2}}
+=\torseurcol{0}{0}{F_p}{0}{0}{0}{C,R_1}
+$$
+%\else\fi
+\end{itemize}
 
 \subsubsection{Bilan des actions mécaniques pour l'ensemble 3}
 
 On choisit d'écrire tous les torseurs des actions mécaniques au point D :
 \begin{itemize}
 \item \textbf{Action de 2 sur 3 en D :}\\
-\ifprof
-\begin{align*}
-\torseur{\T^{D}_{(\sS2\rightarrow\sS3)}}
-=\tColonne{D}{-X_{D32} \\ -Y_{D32} \\ -Z_{D32}}{0 \\ 0 \\ 0}{R_1}
-\end{align*}
-\else\fi
+%\ifprof
+$$
+\torseurstat{T}{S_2}{S_3}
+=\torseurcol{-X_{32}}{-Y_{32}}{ -Z_{32}}{0}{0}{0}{D,R_1}
+$$
+%\else\fi
 \item \textbf{Action de 0 sur 3 en E :}\\
-\ifprof
-\begin{align*}
-\torseur{\T^{E}_{(\sS0\rightarrow\sS3)}}
-=\tColonne{C}{0 \\ 0 \\ Z_{E03}}{L_{E03} \\ M_{E03} \\ 0}{R_{1*}}=\tColonne{D}{0 \\ 0 \\ Z_{E03}}{L_{E03} \\ M_{E03} \\ 0}{R_{1*}}=\tColonne{D}{Z_{E03}\sin(\alpha) \\ 0 \\ Z_{E03}\cos(\alpha)}{L_{E03}\cos(\alpha) \\ M_{E03} \\ -L_{E03}\sin(\alpha)}{R_{1}}
-\end{align*}
-\else\fi
+%\ifprof
+$$
+\torseurstat{T}{S0}{S3}
+=\torseurcol{0}{0}{Z_{03}}{L_{03}}{M_{03}}{0}{C,R_{1*}}
+$$
+$$
+=\torseurcol{0}{0}{Z_{03}}{L_{03}}{M_{03}}{ 0}{D,R_{1*}}$$
+
+$$
+=\torseurcol{Z_{03}\sin(\alpha) }{ 0 }{ Z_{03}\cos(\alpha)}{L_{03}\cos(\alpha) }{ M_{03} }{ -L_{03}\sin(\alpha)}{D,R_{1}}
+$$
+%\else\fi
 \end{itemize}
+
+
+
+
+
 
 \subsection{Résolution d'un système linéaire homogène}
 
@@ -238,94 +269,61 @@ En appliquant successivement le principe fondamental de la statique pour chacun 
 
 \begin{align*}
 \begin{array}{c}
-(1) \mbox{résultante suivant} \overrightarrow{x_1} \\ 
-\\
-(2) \mbox{résultante suivant} \overrightarrow{y_1} \\ 
- \\
-(3) \mbox{résultante suivant} \overrightarrow{z_1} \\ 
- \\
-(4) \mbox{moment suivant} \axe{B}{\overrightarrow{x_1}} \\ 
- \\
-(5) \mbox{moment suivant} \axe{B}{\overrightarrow{y_1}} \\ 
- \\
-(6) \mbox{moment suivant} \axe{B}{\overrightarrow{z_1}} \\ 
-\\
-(7) \mbox{résultante suivant} \overrightarrow{x_1} \\ 
-\\
-(8) \mbox{résultante suivant} \overrightarrow{y_1} \\ 
- \\
-(9) \mbox{résultante suivant} \overrightarrow{z_1} \\ 
- \\
-(10) \mbox{moment suivant} \axe{C}{\overrightarrow{x_1}} \\ 
- \\
-(11) \mbox{moment suivant} \axe{C}{\overrightarrow{y_1}} \\ 
- \\
-(12) \mbox{moment suivant} \axe{C}{\overrightarrow{z_1}} \\ 
-\\
-(13) \mbox{résultante suivant} \overrightarrow{x_1} \\ 
-\\
-(14) \mbox{résultante suivant} \overrightarrow{y_1} \\ 
- \\
-(15) \mbox{résultante suivant} \overrightarrow{z_1} \\ 
- \\
-(16) \mbox{moment suivant} \axe{D}{\overrightarrow{x_1}} \\ 
- \\
-(17) \mbox{moment suivant} \axe{D}{\overrightarrow{y_1}} \\ 
- \\
-(18) \mbox{moment suivant} \axe{D}{\overrightarrow{z_1}} \\ 
+(1) \mbox{résultante suivant} \vect{x_1} \\ 
+(2) \mbox{résultante suivant} \vect{y_1} \\ 
+(3) \mbox{résultante suivant} \vect{z_1} \\ 
+(4) \mbox{moment suivant} \axe{B}{{x_1}} \\ 
+(5) \mbox{moment suivant} \axe{B}{{y_1}} \\ 
+(6) \mbox{moment suivant} \axe{B}{{z_1}} \\ 
+(7) \mbox{résultante suivant} \vect{x_1} \\ 
+(8) \mbox{résultante suivant} \vect{y_1} \\ 
+(9) \mbox{résultante suivant} \vect{z_1} \\ 
+(10) \mbox{moment suivant} \axe{C}{{x_1}} \\ 
+(11) \mbox{moment suivant} \axe{C}{{y_1}} \\ 
+(12) \mbox{moment suivant} \axe{C}{{z_1}} \\ 
+(13) \mbox{résultante suivant} \vect{x_1} \\ 
+(14) \mbox{résultante suivant} \vect{y_1} \\ 
+(15) \mbox{résultante suivant} \vect{z_1} \\ 
+(16) \mbox{moment suivant} {D}{\vect{x_1}} \\ 
+(17) \mbox{moment suivant} {D}{\vect{y_1}} \\ 
+(18) \mbox{moment suivant} {D}{\vect{z_1}} \\ 
 \end{array}
-\left\{
+%\left\{
 \begin{array}{c}
-X_{A01}+X_{B01}+X_{C21}=0 \\ 
-\\
+X_{A01}+X_{B01}+X_{C21}=0 \\
 Y_{A01}+Y_{B01}+Y_{C21}=0 \\ 
- \\ 
 Z_{A01}=0 \\ 
-\\
 L_1\;Y_{A01}+L_{B01}+L_{C21}=0 \\ 
-\\
--L_1\;X_{A01}+M_{B01}+M_{C21}=0 \\ 
- \\ 
+-L_1\;X_{A01}+M_{B01}+M_{C21}=0 \\  
 -R\;Y_{C21} =0\\
-\\
 X_{D32}-X_{C21}=0 \\ 
-\\
-Y_{D32}-Y_{C21}=0 \\ 
- \\ 
+Y_{D32}-Y_{C21}=0 \\  
 Z_{D32}+F_p=0 \\ 
-\\
 -\lambda\;Y_{D32}-L_{C21}=0 \\ 
-\\
 \lambda\;X_{D32}-M_{C21}=0 \\ 
- \\ 
 0 =0\\
-\\
 -X_{D32}+Z_{E03}\sin(\alpha)=0 \\ 
-\\
 -Y_{D32}=0 \\ 
- \\ 
 -Z_{D32}+Z_{E03}\cos(\alpha)=0 \\ 
-\\
 L_{E03}\cos(\alpha)=0 \\ 
-\\
 M_{E03}=0\\ 
- \\ 
 -M_{E03}\sin(\alpha)=0\\ 
-\end{array}\right.
+\end{array}%\right.
 \end{align*}
+
 
 \subsection{Mise en évidence de l'hyperstatisme et de la mobilité}
 %\begin
-{bilan}[Approche statique]
+Bilan de l'approche statique
 \begin{itemize}
 \item On obtient alors un système de \textbf{$E_s=18$ équations statiques}.
 \item La modélisation comporte \textbf{$I_s=17$ inconnues statiques}.
 \item Certaines de ces équations ne sont pas significatives, elles correspondent aux mobilités cinématiques du mécanisme :
-		\begin{itemize}
-		\item Équation (12) \textbf{``$0=0$''} : \textit{mobilité de rotation de piston autour de $\axe{C}{\overrightarrow{z_1}}$}.
-		\item Les équations (6) (8) et (14) sont équivalentes à deux équations libres : \textit{mobilité de rotation du barillet autour de $\axe{B}{\overrightarrow{z_1}}$}.
-		\item Équation (18) liée à (17) : \textit{rotation du poussoir autour de $\axe{E}{\overrightarrow{z_{1*}}}$}.		
-		\end{itemize}
+\begin{itemize}
+\item Équation (12) \textbf{``$0=0$''} : \textit{mobilité de rotation de piston autour de $\axe{C}{{z_1}}$}.
+\item Les équations (6) (8) et (14) sont équivalentes à deux équations libres : \textit{mobilité de rotation du barillet autour de $\axe{B}{{z_1}}$}.
+\item Équation (18) liée à (17) : \textit{rotation du poussoir autour de $\axe{E}{{z_{1*}}}$}.		
+\end{itemize}
 Le système possède alors \textbf{3 mobilités cinématiques ($m_c=3$)}.
 		
 		Pour résoudre ce système on se retrouve donc avec \textbf{$r_S=15$ équations significatives} (rang du système d'équations statiques $r_s$) pour \textbf{$I_S=17$ inconnues}. Nous avons donc un déficit de \textbf{2 équations} ou encore 2 inconnues statiques de trop pour résoudre le problème. Le système est donc \textbf{hypercontraint}.
@@ -337,7 +335,6 @@ h=I_s-r_s=I_s-(E_s-m_c)
 \end{align}
 		
 \end{itemize}
-
 
 %\end{bilan} 
 
@@ -362,110 +359,93 @@ L'approche cinématique consiste à écrire pour chaque chaine la fermeture cin�
 
 
 
-		\begin{figure}[ht!]
-			\begin{center}
-				\includegraphics[width=.5\textwidth]{images/graph_structure_pompe2.pdf}
-			\end{center}
-			\caption{Graphe de structure de la pompe \label{fig:graphe_structure_pompe2}}
-\end{figure}
+\begin{center}
+\includegraphics[width=\linewidth]{images/graph_structure_pompe2.pdf}
+
+\textit{Graphe de structure de la pompe \label{fig:graphe_structure_pompe2}}
+\end{center}
 
 
 %\FloatBarrier
 \subsection{Fermeture de chaine cinématique}
 \subsubsection{Chaine cinématique 1}
 
-\ifprof
 La fermeture cinématique s'écrit :
-
-		\begin{align*}
-		\tCinematique{3}{0}	=	\tCinematique{3}{2}
-						+	\tCinematique{2}{1}	
-						+	\tCinematique{1}{0}	
-		\end{align*}
-		
+$$
+\torseurcin{V}{3}{0} = \torseurcin{V}{3}{2}
++\torseurcin{V}{2}{1}
++\torseurcin{V}{1}{0}
+$$
 		On détermine alors successivement les différents torseurs cinématiques que l'on exprimera tous en $C$:
 
 		\begin{itemize}
-\item \textbf{$\tCinematique{3}{0}$}:\\
-\ifprof
-				\begin{align*}
-					\tCinematique{3}{0}	
-					=	\tColonne{E}{0\\0\\r_{30}}{u_{30}\\v_{30}\\0}{R_{1*}}
-					=	\tColonne{D}{0\\0\\{r}_{30}}{u_{30}\\v_{30}\\0}{R_{1*}}\\
-					=	\tColonne{D}{0\\r_{30}\;\sin(\alpha)\\r_{30}\;\cos(\alpha)}{u_{30}\;\cos(\alpha)\\v_{30}\\-u_{30}\;\sin(\alpha)}{R_{1}}
-					=\tColonne{C}{0\\r_{30}\;\sin(\alpha)\\r_{30}\;\cos(\alpha)}{u_{30}\;\cos(\alpha)-\lambda\;r_{30}\;\sin(\alpha)\\v_{30}\\-u_{30}\;\sin(\alpha)}{R_{1}}
-				\end{align*}
-\else\fi				
-\item \textbf{$\tCinematique{3}{2}$}:\\
-\ifprof
-				\begin{align*}
-					\tCinematique{3}{2}	
-					=	\tColonne{D}{p_{32}\\q_{32}\\r_{32}}{0\\0\\0}{R_{1}}
-					=	\tColonne{C}{p_{32}\\q_{32}\\r_{32}}{-\lambda\;q_{32}\\\lambda\;p_{32}\\0}{R_{1}}
-				\end{align*}
-				\else\fi
-\item \textbf{$\tCinematique{2}{1}$}:\\
-\ifprof
-				\begin{align*}
-					\tCinematique{2}{1}	
-					=	\tColonne{C}{0\\0\\r_{21}}{0\\0\\w_{21}}{R_{1}}
-				\end{align*}
-				\else\fi
-\item \textbf{$\tCinematique{1}{0}$}:\\
-\ifprof
-				\begin{align*}
-					\tCinematique{1}{0}	
-					=	\tColonne{B}{0\\0\\r_{B10}}{0\\0\\0}{R_{1}}
-					=	\tColonne{C}{0\\0\\r_{B10}}{0\\-R\;r_{B10}\\0}{R_{1}}
-				\end{align*}
-\else\fi
-
+\item \textbf{$\torseurcin{V}{3}{0}$}:\\
+$$
+\torseurcin{V}{3}{0}	
+=	\torseurcol{0}{0}{r_{30}}{u_{30}}{v_{30}}{0}{E,R_{1*}}
+$$
+$$
+=	\torseurcol{0}{0}{{r}_{30}}{u_{30}}{v_{30}}{0}{D,R_{1*}}\\
+=	\torseurcol{0}{r_{30}\;\sin(\alpha)}{r_{30}\;\cos(\alpha)}{u_{30}\;\cos(\alpha)}{v_{30}}{-u_{30}\;\sin(\alpha)}{D,R_{1}}
+$$
+$$
+=\torseurcol{0}{r_{30}\;\sin(\alpha)}{r_{30}\;\cos(\alpha)}{u_{30}\;\cos(\alpha)-\lambda\;r_{30}\;\sin(\alpha)}{v_{30}}{-u_{30}\;\sin(\alpha)}{C,R_{1}}
+$$
+\item \textbf{$\torseurcin{V}{3}{2}$}:\\
+$$
+\torseurcin{V}{3}{2}	
+=	\torseurcol{p_{32}}{q_{32}}{r_{32}}{0}{0}{0}{D,R_{1}}
+=	\torseurcol{p_{32}}{q_{32}}{r_{32}}{-\lambda\;q_{32}}{\lambda\;p_{32}}{0}{C,R_{1}}
+$$
+\item \textbf{$\torseurcin{V}{2}{1}$}:\\
+$$
+\torseurcin{V}{2}{1}	
+=	\torseurcol{0}{0}{r_{21}}{0}{0}{w_{21}}{C,R_{1}}
+$$
+\item \textbf{$\torseurcin{V}{1}{0}$}:\\
+$$
+\torseurcin{V}{1}{0}	
+=	\torseurcol{0}{0}{r_{B10}}{0}{0}{0}{B,R_{1}}
+=	\torseurcol{0}{0}{r_{B10}}{0}{-R\;r_{B10}}{0}{C,R_{1}}
+$$
 \end{itemize}
-\else \fi				
 		
 
 
 \subsubsection{Chaine cinématique 2}
 La fermeture cinématique s'écrit :
 
-		\begin{align*}
-		\torseur{\mathcal{V}^{A}_{(1/0)}}		=	\torseur{\mathcal{V}^{B}_{(1/0)}}
-		\end{align*}
+		$$\torseurcin{V}{1_A}{0}=	\torseurcin{V}{1_B}{0}$$
 		
 		On détermine alors successivement les différents torseurs cinématiques que l'on exprimera tous en $A$:
 
 		\begin{itemize}
-\item \textbf{$\torseur{\mathcal{V}^{A}_{(1/0)}}$}:\\
-\ifprof
-				\begin{align*}
-					\torseur{\mathcal{V}^{A}_{(1/0)}}	
-					=	\tColonne{A}{p_{A10}\\q_{A10}\\r_{A10}}{0\\0\\0}{R_{1}}
-				\end{align*}
-\else\fi
-\item \textbf{$\torseur{\mathcal{V}^{B}_{(1/0)}}$}:\\
-\ifprof
-				\begin{align*}
-					\torseur{\mathcal{V}^{B}_{(1/0)}}
-					=	\tColonne{A}{0\\0\\r_{B10}}{0\\0\\w_{B10}}{R_{1}}
-				\end{align*}
-\else\fi
+\item \textbf{$\torseurcin{V}{1_A}{0}$}:\\
+$$
+\torseurcin{V}{1_A}{0}	
+=	\torseurcol{p_{A10}}{q_{A10}}{r_{A10}}{0}{0}{0}{A,R_{1}}
+$$
+\item \textbf{$\torseurcin{V}{1_B}{0}$}:\\
+$$
+\torseurcin{V}{1_B}{0}
+=	\torseurcol{0}{0}{r_{B10}}{0}{0}{w_{B10}}{A,R_{1}}
+$$
 
 \end{itemize}
+
+
 
 \subsection{Résolution}
 On écrit alors la fermeture cinématique pour chaque fermeture cinématique. Cela donnera 12 équation pour 13 inconnues avec les deux fermetures de chaines :
 
-		\begin{align*}
-		\torseur{\mathcal{V}^{A}_{(1/0)}}-\torseur{\mathcal{V}^{B}_{(1/0)}}=\left\{0\right\}\\
-		\\
-				\tCinematique{3}{2}
-						+	\tCinematique{2}{1}	
-						+	\tCinematique{1}{0}-\tCinematique{3}{0}	=\left\{0\right\}
-		\end{align*}
-
-
-				\begin{align*}
-				\begin{array}{c}
+\begin{align*}
+\torseur{\mathcal{V}^{A}_{(1/0)}}-\torseur{\mathcal{V}^{B}_{(1/0)}}=\left\{0\right\}\\
+\\
+\torseurcin{V}{3}{2}+	\torseurcin{V}{2}{1}	
++	\torseurcin{V}{1}{0}-\torseurcin{V}{3}{0}	=\left\{0\right\}
+\end{align*}
+\begin{align*}
+\begin{array}{c}
 (1)\\
 (2)\\
 (3)\\
@@ -531,9 +511,11 @@ w_{21}
 \end{array}
 \right)
 \end{align*}
-				
+			
+
+	
 \subsection{Mise en évidence de l'hyperstatisme et de la mobilité}
-\begin{bilan}{Approche cinématique}
+\subsubsection{Approche cinématique}
 \begin{itemize}
 \item Avec deux cycles fermés, on obtient alors un système de $E_c=12$ équations.
 \item La modélisation comporte $I_c=13$ inconnues cinématiques.
@@ -551,8 +533,11 @@ m_c=I_c-r_c=I_c-(E_c-h).
 \end{itemize}
 
 
-\end{bilan} 
-\FloatBarrier
+
+			
+%\end{multicols}
+
+
 \section{Hyperstatisme}
 
 
@@ -576,12 +561,12 @@ m_c=I_c-r_c=I_c-(E_c-h).
 			\item $m_c>0$ : liaison mobile à $m_c$ degrés de liberté.
 		\end{itemize}
 
-		\begin{remarques}
+		\begin{rem}
 			\item Dans un mécanisme, une mobilité utile est une mobilité \textbf{recherchée dans la fonction du mécanisme}.
 				On différenciera \textbf{seulement} les mobilités utiles \textbf{indépendantes}.
 				Si une relation existe, par exemple, entre un mouvement d'entrée et un mouvement de sortie, alors cela sera considéré comme une seule mobilité.
 			\item Les mobilités internes sont des mobilités indépendantes résiduelles à l'intérieur du mécanisme.
-		\end{remarques}
+		\end{rem}
 
 
 
@@ -589,12 +574,7 @@ m_c=I_c-r_c=I_c-(E_c-h).
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\ifprof
-\end{multicols}
-\else
-\end{multicols}
-\fi
-
+%\end{document}
 
 \end{document}
 
