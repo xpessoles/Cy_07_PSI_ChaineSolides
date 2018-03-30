@@ -107,12 +107,70 @@ Le robot $\text{MC}^2\text{E}$ est utilisé par des chirurgiens en tant que troi
 
 Le robot est constitué de 3 axes de rotations permettant de mettre en position une pince. La pince est animée d'un mouvement de translation permettant de tirer la vésicule pendant que le chirurgien la détache du foie. 
 
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_02}
+%\textit{}
+\end{center}
 
-\begin{obj}
-Valider par un calcul simplifié de pré-dimensionnement la motorisation de l'axe 1 du  $\text{MC}^2\text{E}$.
+On appelle trocart la pièce qui fait l'interface avec l'abdomen du patient et qui va guider l'ensemble des instruments. 
 
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_09}
+%\textit{}
+\end{center}
+
+\subsection*{Travail demandé}
+On s'intéresse à la phase de vie pendant laquelle la pince est introduite dans le trocart au travers d’un guide (étanche). Une phase de calibration du robot démarre ensuite. 
+\begin{obj} ~\\
+\begin{itemize}
+\item Modéliser la liaison entre l’abdomen et la pince \textbf{(4)} en analysant la chaine ouverte de solides du robot.
+\item Analyser les conséquences de la fermeture de la chaine par la liaison peau-trocart.
+\end{itemize}
 \end{obj}
 
+Dans cette phase, la pince du $\text{MC}^2\text{E}$ est dans l’abdomen du patient, via le trocart. On souhaite étudier ici quelques aspects de la géométrie et de la cinématique du robot liés notamment à la nécessité que le point d’incision $O_0 =O_{0,1,2,3}$ soit un point fixe.
+
+Le torseur cinématique du solide \textbf{(i)} par rapport au solide \textbf{(j)}, réduit en $P$, sera noté :
+
+$\torseurcin{V}{i}{j}=\torseurl{\vecto{i}{j}}{\vectv{P}{i}{j}}{P}=\torseurcol{\omega_{xij}}{\omega_{yij}}{\omega_{zij}}{V_{xij}}{V_{yij}}{V_{zij}}{P,\vect{x_k},\vect{y_k},\vect{z_k}}$.
+
+\textbf{Hypothèses}
+
+\begin{itemize}
+\item L’abdomen \textbf{(0)} est supposé fixe.
+\item La pince \textbf{(4)} est déjà introduite dans l’abdomen \textbf{(0)} du patient.
+\item Il n’y a pas encore de contact avec l’organe.
+\end{itemize}
+
+On donne le graphe des liaisons du mécanisme ainsi modélisé.
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_10}
+%\textit{}
+\end{center}
+
+La liaison entre la pince \textbf{(4)} et l’abdomen \textbf{(4)} n’est pas définie ici car elle est complexe : elle est notamment
+imposée par la forme du trocart, que l’on suppose lié à l’abdomen du patient.
+On va dans un premier temps considérer la chaîne ouverte de solides allant de \textbf{(0)} à \textbf{(4)} par l’intermédiaire des trois liaisons pivot et de la liaison glissière.
+
+\subparagraph{}\textit{On considère la chaîne ouverte de solides \textbf{(0+1+2+3+4)}. Par la méthode de votre choix, définir le torseur cinématique de la liaison équivalente 4/0 noté $\left\{\mathcal{V}^{\text{eq}}({4}/{0})\right\}$. En déduire la mobilité cinématique $m_c$
+de cette chaîne de solides.}
+
+On envisage deux modélisations pour la liaison entre la pince \textbf{(4)} et la peau de l’abdomen par l’intermédiaire du trocart :
+\begin{itemize}
+\item modélisation 1 : liaison sphère-cylindre en $O_0$ d’axe $\axe{O_0}{z_3}$;
+\item modélisation 2 : liaison libre.
+\end{itemize}
+
+
+\subparagraph{}\textit{Dans le cadre des deux modélisations retenues, quels sont alors le degré d’hyperstatisme et la mobilité cinématique de la chaine fermée. Compléter le tableau du document réponse concernant les
+implications du modèle retenu sur le robot et les interactions patient / robot. Quelle modélisation vous
+parait la plus proche de la réalité ? Argumenter votre réponse.}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_11}
+%\textit{}
+\end{center}
 
 \ifprof
 \else
