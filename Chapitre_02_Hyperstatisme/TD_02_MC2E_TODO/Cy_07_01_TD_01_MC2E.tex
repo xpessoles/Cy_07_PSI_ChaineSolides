@@ -53,8 +53,8 @@
 %\def\xxonglet{Part. 1 -- Ch. 3}
 \def\xxonglet{\textsf{Cycle 07}}
 
-\def\xxactivite{Application}
-\def\xxauteur{\textsl{Pôle Chateaubriand -- Joliot-Curie}}
+\def\xxactivite{TD}
+\def\xxauteur{\textsl{Xavier Pessoles}}
 
 \def\xxcompetences{%
 \vspace{-.5cm}
@@ -122,6 +122,7 @@ On appelle trocart la pièce qui fait l'interface avec l'abdomen du patient et q
 \subsection*{Travail demandé}
 On s'intéresse à la phase de vie pendant laquelle la pince est introduite dans le trocart au travers d’un guide (étanche). Une phase de calibration du robot démarre ensuite. 
 \begin{obj} ~\\
+\vspace{-.5cm}
 \begin{itemize}
 \item Modéliser la liaison entre l’abdomen et la pince \textbf{(4)} en analysant la chaine ouverte de solides du robot.
 \item Analyser les conséquences de la fermeture de la chaine par la liaison peau-trocart.
@@ -166,18 +167,25 @@ On envisage deux modélisations pour la liaison entre la pince \textbf{(4)} et l
 \subparagraph{}\textit{Dans le cadre des deux modélisations retenues, quels sont alors le degré d’hyperstatisme et la mobilité cinématique de la chaine fermée. Compléter le tableau du document réponse concernant les
 implications du modèle retenu sur le robot et les interactions patient / robot. Quelle modélisation vous
 parait la plus proche de la réalité ? Argumenter votre réponse.}
+
+\footnotesize
 \begin{center}
-\begin{tabular}{ccc}
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{2cm}|}
 \hline
 & Liaison linéaire annulaire & Liaison libre  \\
 \hline
-$m_c$ & & \\ \hline
+$m_c=$ & & \\ \hline
+$h=$ & & \\ \hline
+Efforts au point d'insertion* & & \\ \hline
+Facilité de montage ?* & & \\ \hline
+Rigidité du robot* & & \\ \hline
+\multicolumn{3}{c}{\textit{* : Remplir par oui ou non}}
 \end{tabular}
 \end{center}
 \begin{center}
-\includegraphics[width=\linewidth]{images/fig_11}
-%\textit{}
+%\includegraphics[width=\linewidth]{images/fig_11}
 \end{center}
+
 
 \ifprof
 \else
@@ -194,7 +202,7 @@ $m_c$ & & \\ \hline
 \end{tabular}
 \end{center}
 \fi
-
+\normalsize
 
 \ifprof
 \else
