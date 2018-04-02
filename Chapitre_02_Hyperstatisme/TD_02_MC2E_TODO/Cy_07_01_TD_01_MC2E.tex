@@ -13,7 +13,7 @@
 %\fichefalse
 
 \proftrue
-\proffalse
+%\proffalse
 
 \tdtrue
 %\tdfalse
@@ -103,6 +103,7 @@ Chapitre 2 -- \xxactivite%
 \section*{Mise en situation}
 \ifprof
 \else
+\fi
 Le robot $\text{MC}^2\text{E}$ est utilisé par des chirurgiens en tant que troisième main lors de l'ablation de la vésicule biliaire. La cinématique du robot permet de garantir que le point d'insertion des outils chirurgicaux soit fixe dans le référentiel du patient. 
 
 Le robot est constitué de 3 axes de rotations permettant de mettre en position une pince. La pince est animée d'un mouvement de translation permettant de tirer la vésicule pendant que le chirurgien la détache du foie. 
@@ -156,7 +157,19 @@ On va dans un premier temps considérer la chaîne ouverte de solides allant de 
 
 \subparagraph{}\textit{On considère la chaîne ouverte de solides \textbf{(0+1+2+3+4)}. Par la méthode de votre choix, définir le torseur cinématique de la liaison équivalente 4/0 noté $\left\{\mathcal{V}^{\text{eq}}({4}/{0})\right\}$. En déduire la mobilité cinématique $m_c$
 de cette chaîne de solides.}
+\ifprof
+\begin{corrige} ~\\
+Les 4 solides étant en série, on a 
+$\left\{\mathcal{V}^{\text{eq}}({4}/{0})\right\}=\torseurcin{V}{4}{3}+\torseurcin{V}{3}{2}+\torseurcin{V}{2}{1}+\torseurcin{V}{1}{0}$.
+$O$ étant le point de concours de chacun des axes, les torseurs des liaisons pivots sont tous de la forme : 
+$\torseurcin{V}{i}{i-1}=\torseurl{\dot{\theta}_i\vect{z_i}}{\vect{0}}{O}$.De plus,  $\torseurcin{V}{4}{3}=\torseurl{\vect{0}}{\dot{\lambda}\vect{z_3}}{O}$. 
 
+Au final, $\left\{\mathcal{V}^{\text{eq}}({4}/{0})\right\}=\torseurl{\dot{\theta}_1\vect{z_1}+\dot{\theta}_2\vect{z_2}+\dot{\theta}_3\vect{z_3}}{\dot{\lambda}\vect{z_3}}{O}$.
+ 
+ Il s'agit d'une liaison linéaire annulaire d'axe $\axe{O}{z_3}$. En conséquences $m_c=4$.
+\end{corrige}
+\else
+\fi
 On envisage deux modélisations pour la liaison entre la pince \textbf{(4)} et la peau de l’abdomen par l’intermédiaire du trocart :
 \begin{itemize}
 \item modélisation 1 : liaison sphère-cylindre en $O_0$ d’axe $\axe{O_0}{z_3}$;
