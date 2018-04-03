@@ -96,14 +96,14 @@ Chapitre 2 -- \xxactivite%
 \def\columnseprulecolor{\color{ocre}}
 \setlength{\columnseprule}{0.4pt} 
 
-\ifprof
-\else
+%\ifprof
+
+%\else
 \begin{multicols}{2}
-\fi
+%\fi
 \section*{Mise en situation}
 \ifprof
 \else
-\fi
 Le robot $\text{MC}^2\text{E}$ est utilisé par des chirurgiens en tant que troisième main lors de l'ablation de la vésicule biliaire. La cinématique du robot permet de garantir que le point d'insertion des outils chirurgicaux soit fixe dans le référentiel du patient. 
 
 Le robot est constitué de 3 axes de rotations permettant de mettre en position une pince. La pince est animée d'un mouvement de translation permettant de tirer la vésicule pendant que le chirurgien la détache du foie. 
@@ -120,6 +120,15 @@ On appelle trocart la pièce qui fait l'interface avec l'abdomen du patient et q
 %\textit{}
 \end{center}
 
+
+La figure au verso donne un extrait du cahier des charges. 
+%\begin{center}
+%\includegraphics[width=\linewidth]{images/fig_03}
+%%\textit{}
+%\end{center}
+
+\fi
+
 \subsection*{Travail demandé}
 On s'intéresse à la phase de vie pendant laquelle la pince est introduite dans le trocart au travers d’un guide (étanche). Une phase de calibration du robot démarre ensuite. 
 \begin{obj} ~\\
@@ -130,6 +139,8 @@ On s'intéresse à la phase de vie pendant laquelle la pince est introduite dans
 \end{itemize}
 \end{obj}
 
+\ifprof 
+\else
 Dans cette phase, la pince du $\text{MC}^2\text{E}$ est dans l’abdomen du patient, via le trocart. On souhaite étudier ici quelques aspects de la géométrie et de la cinématique du robot liés notamment à la nécessité que le point d’incision $O_0 =O_{0,1,2,3}$ soit un point fixe.
 
 Le torseur cinématique du solide \textbf{(i)} par rapport au solide \textbf{(j)}, réduit en $P$, sera noté :
@@ -154,6 +165,7 @@ On donne le graphe des liaisons du mécanisme ainsi modélisé.
 La liaison entre la pince \textbf{(4)} et l’abdomen \textbf{(4)} n’est pas définie ici car elle est complexe : elle est notamment
 imposée par la forme du trocart, que l’on suppose lié à l’abdomen du patient.
 On va dans un premier temps considérer la chaîne ouverte de solides allant de \textbf{(0)} à \textbf{(4)} par l’intermédiaire des trois liaisons pivot et de la liaison glissière.
+\fi
 
 \subparagraph{}\textit{On considère la chaîne ouverte de solides \textbf{(0+1+2+3+4)}. Par la méthode de votre choix, définir le torseur cinématique de la liaison équivalente 4/0 noté $\left\{\mathcal{V}^{\text{eq}}({4}/{0})\right\}$. En déduire la mobilité cinématique $m_c$
 de cette chaîne de solides.}
@@ -166,20 +178,54 @@ $\torseurcin{V}{i}{i-1}=\torseurl{\dot{\theta}_i\vect{z_i}}{\vect{0}}{O}$.De plu
 
 Au final, $\left\{\mathcal{V}^{\text{eq}}({4}/{0})\right\}=\torseurl{\dot{\theta}_1\vect{z_1}+\dot{\theta}_2\vect{z_2}+\dot{\theta}_3\vect{z_3}}{\dot{\lambda}\vect{z_3}}{O}$.
  
- Il s'agit d'une liaison linéaire annulaire d'axe $\axe{O}{z_3}$. En conséquences $m_c=4$.
+ Il s'agit d'une liaison sphère-cylindre(linéaire annulaire) d'axe $\axe{O}{z_3}$. En conséquences $m_c=4$.
 \end{corrige}
 \else
 \fi
+
+\ifprof
+\else
+
 On envisage deux modélisations pour la liaison entre la pince \textbf{(4)} et la peau de l’abdomen par l’intermédiaire du trocart :
 \begin{itemize}
 \item modélisation 1 : liaison sphère-cylindre en $O_0$ d’axe $\axe{O_0}{z_3}$;
-\item modélisation 2 : liaison libre.
+\item modélisation 2 : liaison libre : pas de liaison entre le bâti et la pince.
 \end{itemize}
 
+\fi
 
 \subparagraph{}\textit{Dans le cadre des deux modélisations retenues, quels sont alors le degré d’hyperstatisme et la mobilité cinématique de la chaine fermée. Compléter le tableau du document réponse concernant les
 implications du modèle retenu sur le robot et les interactions patient / robot. Quelle modélisation vous
 parait la plus proche de la réalité ? Argumenter votre réponse.}
+
+\ifprof
+
+
+\begin{corrige} ~\\
+\footnotesize
+\begin{center}
+\begin{tabular}{|p{2.2cm}|p{2cm}|p{2cm}|}
+\hline
+& Liaison linéaire annulaire & Liaison libre  \\
+\hline
+$m_c=$ & 4 & 4\\ \hline
+$h=$ & $m-I_c+E_c = 4 - (4+4) + 6 = 2$ &0 (Chaîne ouverte)\\ 
+$h=$ & $m-E_s+I_s = 4 - 24 + 22 = 2$ &0 (Chaîne ouverte)\\ 
+% & & \\ 
+ \hline
+Efforts au point d'insertion* & Oui (à cause de l'hyperstatisme)& Non \\ \hline
+Facilité de montage ?* & Non (à cause de l'hyperstatisme)& Oui \\ \hline
+Rigidité du robot* & Oui... &  Oui...\\ \hline
+\multicolumn{3}{c}{\textit{* : Remplir par oui ou non}}
+\end{tabular}
+\end{center}
+\normalsize
+Les réponses données dans le tableau sont qulitative et criticable... L'hyperstatisme impose des contraintes dans la fabrication l'assemblage du robot qui peuvent se traduire par des efforts à <<vaincre>> lors de l'assemblage ou de la mise en position du robot. 
+
+Un système hyperstatique est réputé plus rigide qu'un système isostatique. Cependant, lorsqu'un système est isostatique, sans jeu et avec des frottements, on peut aussi le considérer comme étant rigide...
+\end{corrige}
+\else
+
 
 \footnotesize
 \begin{center}
@@ -195,9 +241,22 @@ Rigidité du robot* & & \\ \hline
 \multicolumn{3}{c}{\textit{* : Remplir par oui ou non}}
 \end{tabular}
 \end{center}
-\begin{center}
-%\includegraphics[width=\linewidth]{images/fig_11}
-\end{center}
+\normalsize
+%\end{corrige}
+\fi
+
+
+\subsection*{Retour sur le cahier des charges}
+
+
+\subparagraph{}\textit{Quelle exigence le mécanisme utilisé permet-il de satisfaire ? Expliquer en 2 lignes comment cette exigence est satisfaite. }
+
+\ifprof
+\begin{corrige}~\\
+La structure du robot permet de satisfaire l'exigence 1.3 : <<~Ne pas endommager l'abdomen du patient~>>. En effet, le fait que les axes des 3 pivots s'intersectent en un point permet d'avoir un seul point d'entrée de la pince dans l'abdomen. Ainsi, on diminue les risques de <<~blesser~>> davantage le patient lors de l'opération de la vésicule. 
+\end{corrige}
+\else
+\fi
 
 
 \ifprof
@@ -207,9 +266,9 @@ Rigidité du robot* & & \\ \hline
 \hline
 \textbf{Corrigé résumé}
 \begin{enumerate}
-\item $\quad$
-\item $\quad$
-\item $\quad$
+\item Liaison sphère cylindre d'axe $\axe{O}{z_3}$.
+\item Cas 1 : $m_c=4$, $h=2$. Cas 2 : $m_c=4$, $h=0$.
+\item Exigence 1.3.
 \end{enumerate} \\
 \hline
 \end{tabular}
@@ -217,10 +276,10 @@ Rigidité du robot* & & \\ \hline
 \fi
 \normalsize
 
-\ifprof
-\else
+%\ifprof
+%\else
 \end{multicols}
-\fi
+%\fi
 
 \ifprof
 \else
@@ -239,6 +298,11 @@ Rigidité du robot* & & \\ \hline
 \end{document}
 
 \subparagraph{}\textit{}
+\ifprof
+\begin{corrige}~\\
+\end{corrige}
+\else
+\fi
 
 \begin{center}
 \includegraphics[width=\linewidth]{images/img_04}
