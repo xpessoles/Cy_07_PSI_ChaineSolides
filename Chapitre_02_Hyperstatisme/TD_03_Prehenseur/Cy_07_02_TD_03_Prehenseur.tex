@@ -13,7 +13,7 @@
 %\fichefalse
 
 \proftrue
-\proffalse
+%\proffalse
 
 \tdtrue
 %\tdfalse
@@ -32,8 +32,6 @@
 
 \def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
 \def\xxtete{Sciences Industrielles de l'Ingénieur}
-
-
 
 
 \def\xxactivite{TD 03}
@@ -135,6 +133,12 @@ La courroie étant un élément déformable, on n’en tiendra pas compte dans l
 \subparagraph{}\textit{Déterminer le degré d’hyperstatisme de la liaison entre les solides 0 et 1.}
 \ifprof
 \begin{corrige} ~\\
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_01}
+\end{center}
+
+
 \textbf{Méthode cinématique :}
 \begin{itemize}
 \item mobilité utile : $m_u=1$;
@@ -178,6 +182,11 @@ L’introduction des deux soufflets métalliques impose de décomposer l’arbre
 \subparagraph{}\textit{Tracer le nouveau graphe de liaisons en tenant compte de l’introduction des deux soufflets métalliques.}
 \ifprof
 \begin{corrige} ~\\
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/cor_02}
+\end{center}
+
 \end{corrige}
 \else
 \fi
@@ -186,6 +195,21 @@ L’introduction des deux soufflets métalliques impose de décomposer l’arbre
 \subparagraph{}\textit{Déterminer en le justifiant le degré de mobilité du mécanisme ainsi modélisé en question précédente.}
 \ifprof
 \begin{corrige} ~\\
+En réalisant une fermeture cinématique, on a $\torseurcin{V}{1_a}{0}+\torseurcin{V}{1_b}{1_a}+\torseurcin{V}{1_c}{1_b}=\torseurcin{V}{1_c}{0}$. 
+Les torseurs étant considérés écrits au même point $P$, on a : 
+$$
+\left\{ 
+\begin{array}{l}
+p_{ba}+p_{cb}=0 \\
+q_{ba}+q_{cb}=0 \\
+r_{a0}=r_{c0}\\
+v_{xba} + v_{xcb}=0\\
+v_{yba} + v_{ycb}=0\\
+v_{zba} + v_{zcb}=0\\
+\end{array}
+\right. .
+$$
+Il s'agit d'un système de rang 6 avec 12 inconnues. On a donc $m=I_c-r_c=12-6=6$.
 \end{corrige}
 \else
 \fi
@@ -194,6 +218,7 @@ L’introduction des deux soufflets métalliques impose de décomposer l’arbre
 \subparagraph{}\textit{En déduire le degré d’hyperstatisme du système avec ses deux soufflets métalliques.}
 \ifprof
 \begin{corrige} ~\\
+On a $h=m-I_c+E_c = 6-12+6 = 0$.
 \end{corrige}
 \else
 \fi
