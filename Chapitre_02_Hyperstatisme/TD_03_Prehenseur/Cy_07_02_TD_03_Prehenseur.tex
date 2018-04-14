@@ -13,7 +13,7 @@
 %\fichefalse
 
 \proftrue
-%\proffalse
+\proffalse
 
 \tdtrue
 %\tdfalse
@@ -99,15 +99,22 @@ Chapitre 2 -- \xxactivite%
 \begin{multicols}{2}
 %\fi
 \section*{Mise en situation}
+\ifprof
+\else
 On s'intéresse à un système permettant de créer des motifs sur de la poudre de maquillage compactée. Le poste de pulvérisation est en partie constitué d'un robot cartésien 3 axes permettant de déplacer des godets de poudre compactée (grâce à un préhenseur) en dessous de la buse de pulvérisation. 
 
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_02}
 \end{center}
+
+\fi
+
 \begin{obj}
 L’objectif de cette partie est de proposer un modèle du mécanisme constituant le déplacement de l’axe $\vect{x}$ et de justifier certains choix technologiques.
 \end{obj}
 
+\ifprof
+\else
 Le préhenseur repose sur des plaques support qui le lient en liaison encastrement au bâti. Les rails
 guidant le préhenseur suivant l’axe $\vect{x}$ supportent les autres rails guidant les déplacement du préhenseur suivant les axes $\vect{y}$ et $\vect{z}$.
 
@@ -124,18 +131,21 @@ figure suivante représente le schéma cinématique de l’ensemble.
 \begin{center}
 \includegraphics[width=\linewidth]{images/fig_05}
 \end{center}
-
+\fi
 
 
 \section*{Travail demandé}
-La courroie étant un élément déformable, on n’en tiendra pas compte dans l’étude suivante.
 
+\ifprof
+\else
+La courroie étant un élément déformable, on n’en tiendra pas compte dans l’étude suivante.
+\fi
 \subparagraph{}\textit{Déterminer le degré d’hyperstatisme de la liaison entre les solides 0 et 1.}
 \ifprof
 \begin{corrige} ~\\
 
 \begin{center}
-\includegraphics[width=\linewidth]{images/cor_01}
+\includegraphics[width=.5\linewidth]{images/cor_01}
 \end{center}
 
 
@@ -148,6 +158,7 @@ La courroie étant un élément déformable, on n’en tiendra pas compte dans l
 \item nombres d'inconnues cinématiques : $I_c=2\cdot 1=2$.
 \end{itemize}
 Au final : $h=m-I_c+E_c=1-2+6=5$.
+
 \textbf{Méthode statique}
 \begin{itemize}
 \item mobilité utile : $m_u=1$;
@@ -161,7 +172,8 @@ Au final : $h=m-E_s+I_s=1-6+10=5$.
 \else
 \fi
 
-
+\ifprof
+\else
 Pour lever l’hyperstatisme de cette liaison, le constructeur a mis en place deux soufflets métalliques en les implantant de part et d’autre de l’arbre de transmission (figure suivante).
 
 \begin{center}
@@ -177,6 +189,7 @@ Un soufflet métallique est un joint d’accouplement autorisant des défauts d�
 
 L’introduction des deux soufflets métalliques impose de décomposer l’arbre 1 de la question 1 en 3 solides distincts $1_A$, $1_B$ et $1_C$ , le solide $1_B$ étant lié aux deux solides $1_A$ et $1_C$ par les deux soufflets métalliques.
 
+\fi
 
 
 \subparagraph{}\textit{Tracer le nouveau graphe de liaisons en tenant compte de l’introduction des deux soufflets métalliques.}
@@ -203,6 +216,11 @@ $$
 p_{ba}+p_{cb}=0 \\
 q_{ba}+q_{cb}=0 \\
 r_{a0}=r_{c0}\\
+\end{array}
+\right. 
+\quad
+\left\{ 
+\begin{array}{l}
 v_{xba} + v_{xcb}=0\\
 v_{yba} + v_{ycb}=0\\
 v_{zba} + v_{zcb}=0\\
@@ -224,15 +242,18 @@ On a $h=m-I_c+E_c = 6-12+6 = 0$.
 \fi
 
 
+
+\subsection*{Retour sur le cahier des charges}
+
+
+
 \subparagraph{}\textit{Conclure en justifiant l’utilisation des soufflets.}
 \ifprof
 \begin{corrige} ~\\
+Le soufflet permet donc de rendre le système isostatique. Il est ainsi possible de monter le système sans avoir à imposer des contraintes géométriques sur le mécanisme. 
 \end{corrige}
 \else
 \fi
-
-
-\subsection*{Retour sur le cahier des charges}
 
 
 \ifprof
@@ -242,6 +263,10 @@ On a $h=m-I_c+E_c = 6-12+6 = 0$.
 \hline
 \textbf{Corrigé résumé}
 \begin{enumerate}
+\item $h=5$.
+\item ...
+\item $m=6$.
+\item $h=0$.
 \item ...
 \end{enumerate} \\
 \hline
