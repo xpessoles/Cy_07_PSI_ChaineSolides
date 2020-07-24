@@ -51,7 +51,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{exo}{0}
-
+\ifprof
+\else
 
 
 \ifprof
@@ -128,14 +129,18 @@ Les liaisons entre les différentes classes d'équivalence permettent de modéli
 \else
 \end{multicols}
 \fi
+\fi
 
 
 
-\subsection*{Objectifs}
-\begin{itemize}
-\item La résolution statique a pour but de déterminer les actions dans les liaisons mécaniques. Cette résolution pourra alors ensuite permettre un dimensionnement des différentes liaisons.
-\item Cette approche permet également de déterminer l'isostaticité ou l'hypertstaticité en vue de d'estimer les conditions éventuelles de montage du mécanisme.
-\end{itemize}
+\ifprof
+
+
+%\subsection*{Objectifs}
+%\begin{itemize}
+%\item La résolution statique a pour but de déterminer les actions dans les liaisons mécaniques. Cette résolution pourra alors ensuite permettre un dimensionnement des différentes liaisons.
+%\item Cette approche permet également de déterminer l'isostaticité ou l'hypertstaticité en vue de d'estimer les conditions éventuelles de montage du mécanisme.
+%\end{itemize}
 
 \subsection*{Bilan des actions mécanique pour chacune des classes d'équivalence}
 \subsubsection*{Bilan des actions mécaniques pour l'ensemble 1}
@@ -316,7 +321,7 @@ L'approche cinématique consiste à écrire pour chaque chaine la fermeture cin�
 
 
 \begin{center}
-\includegraphics[width=\linewidth]{graph_structure_pompe2.pdf}
+\includegraphics[width=.5\linewidth]{graph_structure_pompe2.pdf}
 
 \textit{Graphe de structure de la pompe \label{fig:graphe_structure_pompe2}}
 \end{center}
@@ -486,41 +491,42 @@ m_c=I_c-r_c=I_c-(E_c-h).
 
 \end{itemize}
 
-
+\else
+\fi
 
 			
 %\end{multicols}
 
 
-\section*{Hyperstatisme}
-
-
-
-	\subsection*{Degrés de mobilité}
-	%-----------------------------------------------------------
-
-	
-		
-		\begin{definition}[Mobilité cinématique]
-		On appelle $m_c=m_u+m_i$ le \textbf{degrés de mobilité cinématique} d'une liaison ou d'un mécanisme, avec :
-			\begin{itemize}
-				\item $m_u$ : le nombre de mobilités dites \textbf{utile},
-				\item $m_i$ : le nombre de mobilités dites \textbf{interne}.
-			\end{itemize}
-		\end{definition}
-
-		Pour une liaison seule :
-		\begin{itemize}
-			\item $m_c=0$ : liaison complète ou rigide,
-			\item $m_c>0$ : liaison mobile à $m_c$ degrés de liberté.
-		\end{itemize}
-
-		\begin{rem}
-			\item Dans un mécanisme, une mobilité utile est une mobilité \textbf{recherchée dans la fonction du mécanisme}.
-				On différenciera \textbf{seulement} les mobilités utiles \textbf{indépendantes}.
-				Si une relation existe, par exemple, entre un mouvement d'entrée et un mouvement de sortie, alors cela sera considéré comme une seule mobilité.
-			\item Les mobilités internes sont des mobilités indépendantes résiduelles à l'intérieur du mécanisme.
-		\end{rem}
-
-
+%\section*{Hyperstatisme}
+%
+%
+%
+%	\subsection*{Degrés de mobilité}
+%	%-----------------------------------------------------------
+%
+%	
+%		
+%		\begin{definition}[Mobilité cinématique]
+%		On appelle $m_c=m_u+m_i$ le \textbf{degrés de mobilité cinématique} d'une liaison ou d'un mécanisme, avec :
+%			\begin{itemize}
+%				\item $m_u$ : le nombre de mobilités dites \textbf{utile},
+%				\item $m_i$ : le nombre de mobilités dites \textbf{interne}.
+%			\end{itemize}
+%		\end{definition}
+%
+%		Pour une liaison seule :
+%		\begin{itemize}
+%			\item $m_c=0$ : liaison complète ou rigide,
+%			\item $m_c>0$ : liaison mobile à $m_c$ degrés de liberté.
+%		\end{itemize}
+%
+%		\begin{rem}
+%			\item Dans un mécanisme, une mobilité utile est une mobilité \textbf{recherchée dans la fonction du mécanisme}.
+%				On différenciera \textbf{seulement} les mobilités utiles \textbf{indépendantes}.
+%				Si une relation existe, par exemple, entre un mouvement d'entrée et un mouvement de sortie, alors cela sera considéré comme une seule mobilité.
+%			\item Les mobilités internes sont des mobilités indépendantes résiduelles à l'intérieur du mécanisme.
+%		\end{rem}
+%
+%
 
